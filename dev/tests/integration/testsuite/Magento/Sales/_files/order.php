@@ -31,6 +31,8 @@ $payment->setAdditionalInformation('metadata', [
 /** @var \Magento\Sales\Model\Order\Item $orderItem */
 $orderItem = $objectManager->create(\Magento\Sales\Model\Order\Item::class);
 $orderItem->setProductId($product->getId())->setQtyOrdered(2);
+$orderItem->setName($product->getName());
+$orderItem->setSku('custom-sku');
 $orderItem->setBasePrice($product->getPrice());
 $orderItem->setPrice($product->getPrice());
 $orderItem->setRowTotal($product->getPrice());

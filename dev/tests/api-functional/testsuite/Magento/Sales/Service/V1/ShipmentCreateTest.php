@@ -107,5 +107,11 @@ class ShipmentCreateTest extends WebapiAbstract
         ];
         $result = $this->_webApiCall($serviceInfo, ['entity' => $data]);
         $this->assertNotEmpty($result);
+        $this->assertArrayHasKey('items', $result);
+        $this->assertCount(1, $result['items']);
+        $this->assertArrayHasKey('name', $result['items'][0]);
+        $this->assertArrayHasKey('sku', $result['items'][0]);
+        $this->assertNotEmpty($result['items'][0]['name']);
+        $this->assertEquals('custom-sku', $result['items'][0]['sku']);
     }
 }
